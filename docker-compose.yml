@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  mailslurper:
+    build: .
+    volumes:
+      - './config.json:/opt/mailslurper/config.json'
+    ports:
+      - '8080:8080'
+      - '8085:8085'
+      - '2500:2500'
