@@ -12,7 +12,7 @@ services:
     expose:
       - 2500
 ## This section is optional if you want other configurations.
-    # network:
+    # networks:
     #   - mailslurper
     ## Uncomment label section to allow for a front end proxy frontend configuration or delete it all if you prefer.
     # labels:
@@ -31,5 +31,5 @@ services:
       # - traefik.frontend.auth.basic.users=USER:$$REDACTED # user:password, see https://docs.traefik.io/configuration/backends/docker/#on-containers
 
 ## Uncomment network sections if you want to use this internally only.
-# network:
+# networks:
 #   mailslurper:
