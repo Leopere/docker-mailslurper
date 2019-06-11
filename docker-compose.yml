@@ -2,10 +2,34 @@ version: '3.4'
 
 services:
   mailslurper:
-    build: .
+    image: leopere/mailslurper
     volumes:
       - './config.json:/opt/mailslurper/config.json'
     ports:
       - '8080:8080'
       - '8085:8085'
       - '2500:2500'
+    expose:
+      - 2500
+## This section is optional if you want other configurations.
+    # network:
+    #   - mailslurper
+    ## Uncomment label section to allow for a front end proxy frontend configuration or delete it all if you prefer.
+    # labels:
+      ## Uncomment traefik labels for reverse proxy front end.
+      # - "traefik.panel.port=8080"
+      # - "traefik.panel.frontend.rule=Host:tx.example.com"
+      # - "traefik.panel.backend=mailslurper"
+      # - "traefik.api.port=8085"
+      # - "traefik.api.frontend.rule=Host:mailapi.example.com"
+      # - "traefik.api.backend=mailslurper-api"
+      # - "traefik.docker.network=traefik"
+      # - "traefik.expose=true"
+      ## To enable password authentication via Traefik
+      ## echo $(htpasswd -nb USER PASSWORD) | sed -e s/\\$/\\$\\$/g
+      ## USER:$$REDACTED
+      # - traefik.frontend.auth.basic.users=USER:$$REDACTED # user:password, see https://docs.traefik.io/configuration/backends/docker/#on-containers
+
+## Uncomment network sections if you want to use this internally only.
+# network:
+#   mailslurper:
