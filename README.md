@@ -3,7 +3,7 @@
 This small image provides a [mailslurper](http://mailslurper.com/) docker image.
 
 I am shipping it with a default configuration. It should be possible to override
-configuration when mounting config.json as a volume:
+configuration when mounting `config.json` as a volume:
 
 ## docker-compose
 
